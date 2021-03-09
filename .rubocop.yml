@@ -1,0 +1,20 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  Exclude:
+    - "Gemfile"
+    - "db/**/*"
+    - "bin/**/*"
+    - "node_modules/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+
+Style/BlockComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
