@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: url_shortener_production
-  username: url_shortener
-  password: <%= ENV["URL_SHORTENER_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: postgres
+  host: postgres

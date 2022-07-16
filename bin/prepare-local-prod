@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Prepare local production environment.
+
+# Init containers
+docker compose up -d
+
+# Create production database
+docker compose exec app rails db:setup
