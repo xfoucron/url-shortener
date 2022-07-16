@@ -1,9 +1,12 @@
-<div class="md:flex md:items-center md:justify-between">
+<div data-controller="clipboard" class="md:flex md:items-center md:justify-between">
+  <%= text_field_tag @link.slug, @link.export_path, 'data-clipboard-target': 'content', readonly: true, hidden: true %>
+
   <div class="flex-1 min-w-0">
     <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate"><%= @link.display_name %></h2>
   </div>
   <div class="mt-4 flex md:mt-0 md:ml-4">
-    <%= link_to('Edit link', edit_link_path(@link), class: 'inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500') %>
+    <%= link_to('Copy link', '#', 'data-action': 'clipboard#copy:prevent', 'data-clipboard-target': 'button', class: 'inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500') %>
+    <%= link_to('Edit link', edit_link_path(@link), class: 'ml-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500') %>
     <%= button_to('Destroy link', @link, method: :delete, class: 'ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500') %>
   </div>
 </div>

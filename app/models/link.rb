@@ -13,4 +13,8 @@ class Link < ApplicationRecord
   def display_name
     name.presence || original_url
   end
+
+  def export_path
+    Rails.application.routes.url_helpers.redirect_url(slug)
+  end
 end

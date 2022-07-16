@@ -25,14 +25,16 @@
           </thead>
           <tbody class="divide-y divide-gray-200 bg-white">
             <% @links.each do |link| %>
-              <tr>
+              <tr data-controller="clipboard">
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><%= link.name %></td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= link.original_url %></td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= link.slug %></td>
                 <td class="block whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                  <%= text_field_tag link.slug, link.export_path, 'data-clipboard-target': 'content', readonly: true, hidden: true %>
                   <%= link_to(link, class: 'text-blue-600 hover:text-blue-900') do %>
                     View <span class="sr-only"><%= link.display_name %></span>
                   <% end %>
+                  <%= link_to('Copy', nil, class: 'text-gray-600 hover:text-gray-900', 'data-action': 'clipboard#copy:prevent', 'data-clipboard-target': 'button') %>
                 </td>
               </tr>
             <% end %>
