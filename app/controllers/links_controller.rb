@@ -52,6 +52,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def go
+    @link = Link.find_by(slug: params[:slug])
+    redirect_to @link.original_url, allow_other_host: true
+  end
+
   private
 
   def set_link

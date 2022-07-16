@@ -14,30 +14,30 @@ class LinksTest < ApplicationSystemTestCase
 
   test 'should create link' do
     visit links_url
-    click_on 'New link'
+    click_on 'Shorten link'
 
     fill_in 'Name', with: @link.name
     fill_in 'Original url', with: @link.original_url
     click_on 'Create Link'
 
     assert_text 'Link was successfully created.'
-    click_on 'Back'
+    click_on 'Links'
   end
 
   test 'should update Link' do
     visit link_url(@link)
-    click_on 'Edit this link', match: :first
+    click_on 'Edit link', match: :first
 
     fill_in 'Name', with: @link.name
     click_on 'Update Link'
 
     assert_text 'Link was successfully updated.'
-    click_on 'Back'
+    click_on 'Links'
   end
 
   test 'should destroy Link' do
     visit link_url(@link)
-    click_on 'Destroy this link', match: :first
+    click_on 'Destroy link', match: :first
 
     assert_text 'Link was successfully destroyed.'
   end

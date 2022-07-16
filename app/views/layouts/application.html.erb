@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>UrlShortener</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <title>URL Shortener</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
+<body>
+<%= render partial: 'layouts/navigation' %>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <% if notice %>
+    <%= render partial: 'layouts/flashes/notice' %>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
 </html>

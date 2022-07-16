@@ -9,4 +9,8 @@ class Link < ApplicationRecord
   def set_slug
     self.slug = SecureRandom.urlsafe_base64(12) if slug?.blank?
   end
+
+  def display_name
+    name.presence || original_url
+  end
 end

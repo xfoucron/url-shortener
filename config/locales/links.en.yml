@@ -1,5 +1,8 @@
 en:
   links:
+    ui:
+      title: "Links"
+      description: "A list of all the links in the database."
     create:
       success: "Link was successfully created."
     update:
